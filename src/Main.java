@@ -1,5 +1,6 @@
 
 import java.util.Scanner;
+import java.util.regex.*;
 
 
 class Main {
@@ -28,10 +29,9 @@ class Main {
     if (l < 10)  return false;
 
     //  bara giltiga tecken
-    for (int c:lösen.toCharArray()) {
-      if ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890+-_".indexOf(c) == -1)
-        return false;
-    }
+    Pattern p = Pattern.compile("[^\\w+-]");
+    Matcher m = p.matcher(lösen);
+    if (m.find())  return false;
 
     return true;
   }

@@ -14,8 +14,8 @@ class Enhetstest {
   @Test void kortLängd()   {  assertFalse(Main.verifieraLösen("12uU"));  }
   @Test void ingetLösen()  {  assertFalse(Main.verifieraLösen(""));  }
 
-  @Test void allaGiltigaTecken()  {  assertTrue(Main.verifieraLösen("1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_+"));  }
-  @Test void ettOgiltigtTecken()  {  assertFalse(Main.verifieraLösen("1234567890aAö+-_"));  }
-  @Test void baraOgiltigaTecken()  {  assertFalse(Main.verifieraLösen("åäö()*.,;ÅÄÖ===[]"));  }
+  @Test void allaGiltigaTecken()   {  assertTrue(Main.verifieraLösen("1234567890-abcdefghijklmnopqrstuvwxyz_ABCDEFGHIJKLMNOPQRSTUVWXYZ+"));  }
+  @Test void ettOgiltigtTecken()   {  assertFalse(Main.verifieraLösen("12345(67890aA+-_"));  }
+  @Test void baraOgiltigaTecken()  {  assertFalse(Main.verifieraLösen("åäö()  *.,;  ÅÄÖ===[]"));  }
 
 }
