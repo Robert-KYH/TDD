@@ -22,6 +22,10 @@ class Main {
 
 
   static boolean verifieraLösen(String s) {
+    int l = s.length();
+
+    if (l < 10)  return false;
+
     return true;
   }
 
