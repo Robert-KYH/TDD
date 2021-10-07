@@ -21,10 +21,17 @@ class Main {
   }
 
 
-  static boolean verifieraLösen(String s) {
-    int l = s.length();
+  static boolean verifieraLösen(String lösen) {
+    int l = lösen.length();
 
+    //  minst 10 tecken
     if (l < 10)  return false;
+
+    //  bara giltiga tecken
+    for (int c:lösen.toCharArray()) {
+      if ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890+-_".indexOf(c) == -1)
+        return false;
+    }
 
     return true;
   }
