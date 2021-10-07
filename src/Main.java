@@ -23,10 +23,9 @@ class Main {
 
 
   static boolean verifieraLösen(String lösen) {
-    int l = lösen.length();
 
     //  minst 10 tecken
-    if (l < 10)  return false;
+    if (lösen.length() < 10)  return false;
 
     //  bara giltiga tecken
     Pattern p = Pattern.compile("[^\\w+-]");
@@ -43,5 +42,4 @@ class Main {
 
 
   static void print(String s)  {  System.out.println(s);  }
-
 }
