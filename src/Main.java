@@ -33,6 +33,11 @@ class Main {
     Matcher m = p.matcher(lösen);
     if (m.find())  return false;
 
+    //  minst en versal, en gemen, och en siffra
+    p = Pattern.compile("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])");
+    m = p.matcher(lösen);
+    if (!m.find())  return false;
+
     return true;
   }
 

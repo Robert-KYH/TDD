@@ -18,4 +18,11 @@ class Enhetstest {
   @Test void ettOgiltigtTecken()   {  assertFalse(Main.verifieraLösen("12345(67890aA+-_"));  }
   @Test void baraOgiltigaTecken()  {  assertFalse(Main.verifieraLösen("åäö()  *.,;  ÅÄÖ===[]"));  }
 
+  @Test void rättAntalGiltiga_1()  {  assertTrue(Main.verifieraLösen("abcd1234ABCD"));  }
+  @Test void rättAntalGiltiga_2()  {  assertTrue(Main.verifieraLösen("1234abcd+-_ABCD"));  }
+  @Test void rättAntalGiltiga_3()  {  assertTrue(Main.verifieraLösen("+++++1aB-----_____"));  }
+  @Test void gemenerSaknas()       {  assertFalse(Main.verifieraLösen("ABCDEFG123456"));  }
+  @Test void versalerSaknas()      {  assertFalse(Main.verifieraLösen("abcdefg567890"));  }
+  @Test void siffrorSaknas()       {  assertFalse(Main.verifieraLösen("abcdefXXYYZZABC"));  }
+
 }
