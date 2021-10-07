@@ -22,7 +22,7 @@ class Main {
 
 
   static boolean verifieraLösen(String s) {
-    return false;
+    return true;
   }
 
 
