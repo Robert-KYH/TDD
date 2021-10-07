@@ -9,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class Enhetstest {
 
-  @Test void storLängd()   {  assertTrue(Main.verifieraLösen("1234567890abcdefghijklmno"));  }
+  @Test void storLängd()   {  assertTrue(Main.verifieraLösen("1234567890abcdeFghijklmno"));  }
   @Test void exaktLängd()  {  assertTrue(Main.verifieraLösen("12345678aA"));  }
-  @Test void kortLängd()   {  assertFalse(Main.verifieraLösen("1234"));  }
+  @Test void kortLängd()   {  assertFalse(Main.verifieraLösen("12uU"));  }
   @Test void ingetLösen()  {  assertFalse(Main.verifieraLösen(""));  }
 
   @Test void allaGiltigaTecken()  {  assertTrue(Main.verifieraLösen("1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_+"));  }
