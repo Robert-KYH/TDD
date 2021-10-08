@@ -1,6 +1,5 @@
 
 import java.util.Scanner;
-import java.util.regex.*;
 
 
 class Main {
@@ -11,33 +10,21 @@ class Main {
     print("* Minst en versal, en gemen, och en siffra\n");
 
     String lösen;
-    while (true) {
+    do {
       System.out.print("Välj ett lösenord: ");
       lösen = new Scanner(System.in).nextLine();
-      if (verifieraLösen(lösen))  break;
-      else                        print("!!! Lösenordet är ej giltigt");
-    }
+    } while (!verifieraLösen(lösen));
 
-    print(lösen+" - OK");
+    print("OK");
   }
 
 
   static boolean verifieraLösen(String lösen) {
 
-    //  minst 10 tecken
-    if (lösen.length() < 10)  return false;
+    //  [\w+-]{10,}  texten består av 10 eller fler tecken innehållande endast A-Z a-z 0-9 _ + -
+    //  (?=.*[A-Z])  (minst) en bokstav A-Z någonstans i texten
 
-    //  bara giltiga tecken
-    Pattern p = Pattern.compile("[^\\w+-]");
-    Matcher m = p.matcher(lösen);
-    if (m.find())  return false;
-
-    //  minst en versal, en gemen, och en siffra
-    p = Pattern.compile("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])");
-    m = p.matcher(lösen);
-    if (!m.find())  return false;
-
-    return true;
+    return lösen.matches("(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[\\w+-]{10,}");
   }
 
 
